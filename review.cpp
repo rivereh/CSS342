@@ -40,18 +40,34 @@ public:
 
 };
 
+void changeName(string& name)
+{
+    name = "New name";
+}
+
+void changeName2(string& name)
+{
+    name = "New name2";
+}
+
 
 int main()
 {
 
-    int var1 = 1;
-    int var2 = 2;
+    // // pointer
+    // int i = 1;
+    // int *iptr = &i; // holds the address of i
+    // int i2 = *iptr; // dereferences i and hold value of '1'
 
-    int *var3 = &var1;
+    // cout << i2 << endl;
 
-    cout << "Address of var1: " << &var1 << endl;
-    cout << "Address of var2: " << &var2 << endl;
-    cout << "Address of var3: " << *var3 << endl;
+    string myName = "River";
+    cout << myName << endl;
+    changeName(myName);
+    cout << myName << endl;
+
+    string* name2 = &myName;
+    cout << name2 << endl;
 
 
     // Box box1(6, 5, 2);

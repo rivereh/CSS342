@@ -62,13 +62,15 @@ int main()
     // cout << i2 << endl;
 
     string myName = "River";
-    cout << myName << endl;
+    // cout << myName << endl;
     changeName(myName);
-    cout << myName << endl;
+    cout << &myName << endl;
 
     string* name2 = &myName;
     cout << name2 << endl;
-
+    changeName2(*name2);
+    cout << *name2 << endl;
+    cout << myName << endl;
 
     // Box box1(6, 5, 2);
     // Box box2(1, 2, 3);

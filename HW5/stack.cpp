@@ -1,4 +1,5 @@
 #include "stack.h"
+using std::cout;
 
 void Stack::push(int num)
 {
@@ -7,9 +8,17 @@ void Stack::push(int num)
 
 int Stack::pop()
 {
-    int elem = getData()->back();
-    getData()->pop_back();
-    return elem;
+    if (List::size() == 0)
+    {
+        cout << "No elements in stack!\n";
+        return -1;
+    }
+    else
+    {
+        int elem = getData()->back();
+        getData()->pop_back();
+        return elem;
+    }
 }
 
 void Stack::print()

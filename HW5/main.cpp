@@ -3,61 +3,50 @@
 #include "set.h"
 #include "queue.h"
 #include "stack.h"
-
 using std::endl;
 using std::cout;
 
 int main()
 {
-    List newList;
+    // List demonstration
+    cout << "List demonstration:\n";
+    List list;
+    list.add(1);
+    list.add(1); // adding duplicates
+    list.add(2);
+    list.add(3);
+    list.print();
+    cout << endl;
 
-    newList.add(2);
-    newList.add(3);
-    newList.add(4);
+    // Set demonstration
+    cout << "Set demonstration:\n";
+    Set set;
+    set.add(1);
+    set.add(1); // adding duplicates, will return error
+    set.add(2);
+    set.add(3);
+    set.print();
+    cout << endl;
 
-    // cout << newList << endl;
-    // cout << newList.contains(6) << endl;
+    // Queue demonstration
+    cout << "Queue demonstration:\n";
+    Queue queue;
+    queue.enqueue(1);
+    queue.enqueue(2);
+    queue.enqueue(3);
+    queue.print();
+    cout << "Dequeued " << queue.dequeue() << " from queue!\n";
+    queue.print();
+    cout << endl;
 
-
-    // Set newSet;
-    // newSet.add(4);
-    // newSet.add(4);
-    // newSet.add(4);
-    // cout << newSet.size() << endl;
-
-    Queue newQ;
-    newQ.enqueue(1);
-    newQ.enqueue(2);
-    newQ.enqueue(3);
-    newQ.enqueue(4);
-    
-    // newQ.print();
-
-    newQ.dequeue();
-    // newQ.print();
-
-    Stack s;
-
-    s.push(1);
-    s.push(2);
-    s.push(3);
-    
-
-    s.print();
-    s.pop();
-    s.print();
-
-    // newQ.size();
-
-    // cout << newQ << endl;
-    
-
-
-    // cout << newList.find(2) << endl;
-
-    // newList.print();
-    // newList.remove(0);
-    // newList.print();
-
-
+    // Stack demonstration
+    cout << "Stack demonstration:\n";
+    Stack stack;
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+    stack.print();
+    cout << "Popped " << stack.pop() << " from stack!\n";
+    stack.print();
+    cout << endl;
 }

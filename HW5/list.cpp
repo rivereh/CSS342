@@ -1,30 +1,16 @@
 #include "list.h"
+#include <algorithm>
 using std::cout;
-
-List::List()
-{   
-
-}
-
-List::~List()
-{
-
-}
+using std::find;
 
 int List::size()
 {
     return data.size();
 }
 
-int List::find(int index)
+bool List::contains(int elem)
 {
-    if (index >= size())
-    {
-        cout << "Index larger than list size!\n";
-        return -1;
-    }
-    else
-        return data.at(index);
+    return find(data.begin(), data.end(), elem) != data.end() ? true : false;
 }
 
 void List::add(int num)
@@ -40,16 +26,20 @@ void List::remove(int index)
         data.erase(data.begin() + index);
 }
 
-ostream& operator<<(ostream &outStream, const List &list)
+void List::print()
 {
-    if (list.data.size() == 0)
-        outStream << "No items in list!\n";
+    if (size() == 0)
+        cout << "No items in list!\n";
     else
     {
-        outStream << "[" << list.data.at(0);
-        for (int i = 1; i < list.data.size(); i++)
-            outStream << ", " << list.data.at(i);
-        outStream << "]\n";
+        cout << "[" << data.at(0);
+        for (int i = 1; i < size(); i++)
+            cout << ", " << data.at(i);
+        cout << "]\n";
     }
-	return outStream;
+}
+
+vector<int> *List::getData()
+{
+    return &data;
 }

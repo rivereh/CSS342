@@ -9,13 +9,13 @@ using std::vector;
 class List
 {
 public:
-    List();
-    ~List();
     int size();
-    int find(int);
-    virtual void add(int);
-    virtual void remove(int);
-    friend ostream& operator<<(ostream &outStream, const List &list);
+    bool contains(int);
+    void add(int);
+    void remove(int);
+    void print();
+protected:
+    vector<int> *getData();
 private:
     vector<int> data;
 };

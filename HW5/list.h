@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <vector>
+using std::ostream;
+using std::vector;
 
 class List
 {
@@ -13,10 +15,9 @@ public:
     int find(int);
     virtual void add(int);
     virtual void remove(int);
-    void print();
-    // bool operator==(const List& other) const;
+    friend ostream& operator<<(ostream &outStream, const List &list);
 private:
-    std::vector<int> data;
+    vector<int> data;
 };
 
 #endif /* LIST_H */

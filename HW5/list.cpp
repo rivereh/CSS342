@@ -1,4 +1,5 @@
 #include "list.h"
+using std::cout;
 
 List::List()
 {   
@@ -19,7 +20,7 @@ int List::find(int index)
 {
     if (index >= size())
     {
-        std::cout << "Index larger than list size!\n";
+        cout << "Index larger than list size!\n";
         return -1;
     }
     else
@@ -31,23 +32,24 @@ void List::add(int num)
     data.push_back(num);
 }
 
-void List::print()
-{
-    if (size() == 0)
-        std::cout << "No items in list!\n";
-    else
-    {
-        std::cout << "[" << data.at(0);
-        for (int i = 1; i < size(); i++)
-            std::cout << ", " << data.at(i);
-        std::cout << "]\n";
-    }
-}
-
 void List::remove(int index)
 {
     if (index >= size())
-        std::cout << "Index larger than list size!\n";
+        cout << "Index larger than list size!\n";
     else 
         data.erase(data.begin() + index);
+}
+
+ostream& operator<<(ostream &outStream, const List &list)
+{
+    if (list.data.size() == 0)
+        outStream << "No items in list!\n";
+    else
+    {
+        outStream << "[" << list.data.at(0);
+        for (int i = 1; i < list.data.size(); i++)
+            outStream << ", " << list.data.at(i);
+        outStream << "]\n";
+    }
+	return outStream;
 }

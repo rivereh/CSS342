@@ -120,7 +120,6 @@ void DoublyLinkedList::bubbleSort(char order)
 {
     bool swapped;
     Node* current;
-    Node *temp = nullptr;
 
     if (head == nullptr)
     {
@@ -132,7 +131,7 @@ void DoublyLinkedList::bubbleSort(char order)
         swapped = false;
         current = head;
 
-        while (current->next != temp)
+        while (current->next != nullptr)
         {
             if (order == 'a' || order == 'A')
             {
@@ -152,7 +151,6 @@ void DoublyLinkedList::bubbleSort(char order)
             }
             current = current->next;
         }
-        temp = current;
     }
     while(swapped);
 }

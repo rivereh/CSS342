@@ -1,5 +1,5 @@
-main: main.o list.o
-	g++ main.o list.o -o main
+main: main.o list.o show.o
+	g++ main.o list.o show.o -o main
 
 main.o: main.cpp
 	g++ -c main.cpp

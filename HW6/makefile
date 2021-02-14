@@ -7,5 +7,8 @@ main.o: main.cpp
 list.o: list.cpp
 	g++ -c list.cpp
 
+show.o: show.cpp
+	g++ -c show.cpp
+
 clean:
 	rm *.o

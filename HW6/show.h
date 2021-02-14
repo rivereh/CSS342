@@ -2,11 +2,13 @@
 #define SHOW_H
 #include <iostream>
 
+using std::string;
+
 class Show
 {
 public:
-    String(string name, string genre) 
-        : string(string), genre(genre) {}
+    Show(string name, string genre) 
+        : name(name), genre(genre) {}
     string name;
     string genre;
 };

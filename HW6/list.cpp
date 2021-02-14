@@ -93,7 +93,7 @@ bool List<T>::search(T item)
 }
 
 template <typename T>
-ostream& operator<<(ostream &outStream, const List<T> &list)
+ostream& operator<<(ostream& outStream, const List<T>& list)
 {
     for (int i = 0; i < list.used; i++)
         outStream << list.data[i] << " ";

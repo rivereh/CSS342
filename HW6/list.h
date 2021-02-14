@@ -16,7 +16,8 @@ public:
     void remove(T);
     bool search(T);
 private:
-    friend ostream& operator<<(ostream &, const List<T> &);
+    template <typename Y>
+    friend ostream& operator<<(ostream&, const List<Y>&);
 };
 
 #endif /* LIST_H */

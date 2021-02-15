@@ -4,23 +4,6 @@ using std::cout;
 using std::endl;
 
 template <typename T>
-void List<T>::sort()
-{
-    for (int i = used - 1; i > 0; i--)
-    {
-        for (int j = 0; j < i; j++)
-        {
-            if (data[j] > data[j + 1])
-            {
-                int temp = data[j + 1];
-                data[j + 1] = data[j];
-                data[j] = temp;
-            }
-        }
-    }
-}
-
-template <typename T>
 void List<T>::print()
 {
     for (int i = 0; i < used; i++)
@@ -72,7 +55,7 @@ void List<T>::remove(T item)
 
 // this search method has a complexity of O(logn)
 template <typename T>
-bool List<T>::search(T item)
+T List<T>::search(T item)
 {
     int min = 0;
     int max;
@@ -82,20 +65,51 @@ bool List<T>::search(T item)
     {
         int mid = min + (max - 1) / 2;
         if (data[mid] == item)
-            return true;
+            return data[mid];
 
         if (data[mid] < item)
             min = mid + 1;
         else
             max = mid - 1;
     }
-    return false;
+    return data[min];
+}
+
+template <typename T>
+void List<T>::topThree(T item)
+{
+    int min = 0;
+    int max;
+    (used % 2 == 0) ? max = used - 1 : max = used;
+    
+    while (min <= max)
+    {
+        int mid = min + (max - 1) / 2;
+        if (data[mid] == item)
+        {
+            cout << data[mid] << endl;
+            cout << data[mid + 1] << endl;
+            cout << data[mid + 2] << endl;
+            return;
+        }
+
+        if (data[mid] < item)
+            min = mid + 1;
+        else
+            max = mid - 1;
+    }
+    cout << data[min] << endl;
+    cout << data[min + 1] << endl;
+    if (data[min + 1] == data[min + 2])
+        cout << data[min + 3] << endl;
+    else
+        cout << data[min + 2] << endl;
 }
 
 template <typename T>
 ostream& operator<<(ostream& outStream, const List<T>& list)
 {
     for (int i = 0; i < list.used; i++)
-        outStream << list.data[i] << " ";
+        outStream << list.data[i] << endl;
 	return outStream;
 }

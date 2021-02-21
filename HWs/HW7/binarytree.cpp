@@ -80,9 +80,3 @@ void BinaryTree::printRow(BinaryTree* node, int row)
     printRow(node->left, row - 1);
     printRow(node->right, row - 1);
 }
-
-ostream& operator<<(ostream& outStream, const BinaryTree& node)
-{
-    return outStream << node.data << " ";
-}
-

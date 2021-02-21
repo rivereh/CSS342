@@ -31,9 +31,7 @@ public:
 
     int height();
     int height(BinaryTree*);
-
     void printRow(BinaryTree*, int);
-    friend ostream& operator<<(ostream&, const BinaryTree&);
 };
 
 #endif /* BINARYTREE_H */

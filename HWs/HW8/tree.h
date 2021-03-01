@@ -25,7 +25,7 @@ public:
 
     void insert(Student student)
     {
-        if (insertIndex == children.size())
+        if (insertIndex >= children.size())
             insertIndex = 0;
         Tree *temp = new Tree(&student);
 
@@ -34,15 +34,6 @@ public:
             children.at(insertIndex)->children.push_back(temp);
         else
             insertIndex++;
-        insertIndex++;
-    }
-
-    void insertOverload(Tree* student)
-    {
-        if (insertIndex == children.size() - 1)
-            insertIndex = 0;
-
-        children.at(insertIndex)->children.push_back(student);
         insertIndex++;
     }
 
@@ -62,6 +53,15 @@ public:
         find(instructor)->children.push_back(temp);
     }
 
+    void insertOverload(Tree* student)
+    {
+        if (insertIndex >= children.size())
+            insertIndex = 0;
+
+        children.at(insertIndex)->children.push_back(student);
+        insertIndex++;
+    }
+
     void removeStudent(string student)
     {
         if (find(student) == nullptr)
@@ -75,6 +75,7 @@ public:
 
     void removeInstructor(string instructor)
     {
+        vector<Tree*> copy;
         if (find(instructor) == nullptr)
         {
             cout << "Instructor does not exist!\n";
@@ -82,11 +83,12 @@ public:
         }
 
         for (Tree* node : find(instructor)->children)
-        {
-            insertOverload(node);
-        }
+            copy.push_back(node);
 
         children.erase(children.begin() + getIndex(children, instructor));
+
+        for (Tree* node : copy)
+            insertOverload(node);
     }
 
     int getIndex(vector<Tree*> tree, string name)

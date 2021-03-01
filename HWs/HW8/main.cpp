@@ -55,12 +55,15 @@ int main()
     tree.insert(falco);
     tree.insert(onyankopon);
 
-    cout << "Tree before instructor Hange removal:\n";
+    cout << "Tree BEFORE instructor Hange removal:\n";
     cout << tree << endl;
 
+    cout << "Tree AFTER instructor Hange removal:\n";
     tree.removeInstructor("Hange");
-
-
     cout << tree << endl;
 
+    // attempting to add student to the recently removed Hange's class
+    Student petra("Petra");
+    cout << "Adding Petra to Hange's class: ";
+    tree.insert(petra, "Hange");
 }
